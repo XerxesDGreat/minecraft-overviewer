@@ -27,7 +27,7 @@ ENV CONFIG_LOCATION /home/minecraft/config.py
 
 RUN apt-get update && \
     apt-get install -y wget gnupg optipng build-essential python3-pillow python3-dev python3-numpy unzip && \
-    wget https://github.com/iRath96/Minecraft-Overviewer/archive/block-model.zip && \
+    wget https://github.com/overviewer/Minecraft-Overviewer/archive/116-blocks.zip && \
     unzip block-model.zip && \
     cd Minecraft-Overviewer-block-model && \
     python3 setup.py install &&\
@@ -42,6 +42,7 @@ COPY entrypoint.sh /home/minecraft/entrypoint.sh
 COPY download_url.py /home/minecraft/download_url.py
 
 RUN chown minecraft:minecraft -R /home/minecraft/
+RUN chmod +x /home/minecraft/entrypoint.sh
 
 WORKDIR /home/minecraft/
 
