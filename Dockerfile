@@ -28,9 +28,9 @@ ENV CONFIG_LOCATION /home/minecraft/config.py
 RUN apt-get update && \
     apt-get install -y wget gnupg optipng build-essential python3-pillow python3-dev python3-numpy unzip && \
     wget https://github.com/overviewer/Minecraft-Overviewer/archive/116-blocks.zip && \
-    unzip block-model.zip && \
-    cd Minecraft-Overviewer-block-model && \
-    python3 setup.py install &&\
+    unzip 116-blocks.zip && \
+    cd Minecraft-Overviewer-116-blocks && \
+    python3 setup.py install && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     groupadd minecraft -g 1000 && \
