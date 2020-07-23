@@ -26,11 +26,11 @@ ENV RENDER_SIGNS_JOINER "<br />"
 ENV CONFIG_LOCATION /home/minecraft/config.py
 
 RUN apt-get update && \
-    apt-get install -y wget gnupg optipng && \
-    echo "deb http://overviewer.org/debian ./" >> /etc/apt/sources.list && \
-    wget -O - https://overviewer.org/debian/overviewer.gpg.asc | apt-key add - && \
-    apt-get update && \
-    apt-get install -y minecraft-overviewer && \
+    apt-get install -y wget gnupg optipng build-essential python3-pillow python3-dev python3-numpy unzip && \
+    wget https://github.com/iRath96/Minecraft-Overviewer/archive/block-model.zip && \
+    unzip block-model.zip && \
+    cd Minecraft-Overviewer-block-model && \
+    python3 setup.py build &&\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     groupadd minecraft -g 1000 && \
