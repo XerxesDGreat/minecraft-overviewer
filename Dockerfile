@@ -30,7 +30,7 @@ RUN apt-get update && \
     wget https://github.com/iRath96/Minecraft-Overviewer/archive/block-model.zip && \
     unzip block-model.zip && \
     cd Minecraft-Overviewer-block-model && \
-    python3 setup.py build &&\
+    python3 setup.py install &&\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     groupadd minecraft -g 1000 && \
